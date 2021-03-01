@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Boyfriends#show</h1>
+  <div class="container">
+    <h1><%= @boyfriend.name %></h1>
+    <!-- à implémenter après maj model user
+    <h4>Proudly rent by <%= @boyfriend.user.name %></h4>
+    -->
+    <p><%= @boyfriend.description %></p>
+  </div>
+  <!-- à utiliser si implémentation pundit
+  <% if current_user == @boyfriend.user %>
+  <div class="container">
+        <%= link_to edit_boyfriend_path(@boyfriend), class: "ml-3 text-warning" do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <%= link_to boyfriend_path(@boyfriend), method: :delete, data: { confirm: "Sure you want to delete ?" }, class: "ml-3 text-danger" do  %> 
+          <i class="far fa-trash-alt"></i> 
+        <% end %>
+      </div>
+      <% end %>
+  -->
+  <div class="footer">
+    <%= link_to 'Back to the menu', root_path, class: 'link-primary' %>
+  </div>
+</div>
+
