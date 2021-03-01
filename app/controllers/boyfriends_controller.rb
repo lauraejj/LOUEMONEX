@@ -1,0 +1,2 @@
+class BoyfriendsController < ApplicationController
+end
