@@ -1,20 +1,24 @@
 <div class="container">
   <div class="container">
     <div class="card" style="width: 25rem; margin-top: 16px">
+      <% if @boyfriend.photos.attached? %>
         <%= cl_image_tag @boyfriend.photos.first.key, class: "card-img-top", height: 250, width: 150 %>
+      <% else %>
+        <%= cl_image_tag 'missing_bf', class: "card-img-top", height: 250, width: 150 %>
+      <% end %>
       <div class="card-body">
         <div class="card-text">
           <h1><%= @boyfriend.name %></h1>
         <br>
           <h4>Description</h4>
           <p><%= @boyfriend.description %></p>
-        
         </div>
+      </div>
+      <div class="card-footer">
+        <%= link_to 'Back to the menu', root_path, class: 'link-primary' %>
       </div>
     </div>
       
-  <div class="footer">
-    <%= link_to 'Back to the menu', root_path, class: 'link-primary' %>
-  </div>
+
 </div>
 
