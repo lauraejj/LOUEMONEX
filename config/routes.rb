@@ -7,5 +7,4 @@ Rails.application.routes.draw do
     end
   end
   root to: 'boyfriends#index'
-
 end

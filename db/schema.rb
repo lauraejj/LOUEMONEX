@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_165452) do
+ActiveRecord::Schema.define(version: 2021_03_03_192432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2021_03_03_165452) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "boyfriend_services", force: :cascade do |t|
+    t.bigint "boyfriend_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["boyfriend_id"], name: "index_boyfriend_services_on_boyfriend_id"
+    t.index ["service_id"], name: "index_boyfriend_services_on_service_id"
+  end
+
   create_table "boyfriends", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -58,6 +67,13 @@ ActiveRecord::Schema.define(version: 2021_03_03_165452) do
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string "category"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,6 +88,8 @@ ActiveRecord::Schema.define(version: 2021_03_03_165452) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "boyfriend_services", "boyfriends"
+  add_foreign_key "boyfriend_services", "services"
   add_foreign_key "boyfriends", "users"
   add_foreign_key "reservations", "boyfriends"
   add_foreign_key "reservations", "users"
