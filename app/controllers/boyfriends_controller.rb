@@ -7,4 +7,8 @@ end
     @boyfriends = Boyfriend.all
   end
 
+def show
+  @boyfriend = Boyfriend.find(params[:id])
+end
+
 end
