@@ -10,7 +10,31 @@
 }
 
 .card-footer{
-  background-color: #e9e5e5;
+  background-color: #dbd6d6;
   border-bottom-right-radius: 8px !important;
   border-bottom-left-radius: 8px !important;
 }
+
+.card-index-body {
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #d5d5d5;
+}
+
+.card-index-text {
+  position:relative;
+  padding-bottom: 32px;
+}
+
+.card-index-footer {
+  width: 100%;
+  background-color: #d5d5d5;
+  padding-bottom: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  position:absolute;
+  bottom:0;
+}
+
+

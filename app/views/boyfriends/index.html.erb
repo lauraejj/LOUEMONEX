@@ -27,20 +27,29 @@
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
     </form>
   </div>
 </nav>
 
-<div class="container" >
-  <h2>Liste des Boyfriends</h2>
-  <ul>
-    <% @boyfriends.each do |boyfriend| %>
-      <li><%= boyfriend.name %></li>
-      <li><%= boyfriend.age %></li>
-      <li><%= boyfriend.ville %></li>
-      <li><%= boyfriend.description %></li>
-    <% end %>
-  </ul>
+<div class="container">
+  <% @boyfriends.each do |boyfriend| %>
+    <div class="card" style="width: 18rem;">
+      <% if boyfriend.photos.attached? %>
+        <%= cl_image_tag boyfriend.photos.first.key, class: "card-img-top", height: 160, width: 80 %>
+      <% else %>
+        <%= cl_image_tag 'missing_bf', class: "card-img-top", height: 160, width: 80 %>
+      <% end %>
+      <div class="card-index-body">
+        <h5 class="card-index-title"><%= boyfriend.name %></h5>
+        <p><%= boyfriend.age%> ans</p>
+        <p class="card-index-text"><%= boyfriend.description %></p>
+      </div>
+      <div class="card-index-footer">
+        <%= link_to 'Réserver', boyfriend_path(boyfriend), class: 'btn btn-primary btn-block' %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 
