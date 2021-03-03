@@ -12,6 +12,7 @@ puts 'Start seed'
 15.times do |i|
   user = User.create!(
     # name: Faker::Name.name,
+    nickname: 'azerty123',
     email: "user#{i + 1}@mail.fr",
     password: 'azerty123',
     # description: Faker::TvShows::HowIMetYourMother.quote,
