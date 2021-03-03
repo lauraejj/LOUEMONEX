@@ -1,0 +1,16 @@
+.card{
+  background-color: #dbd6d6;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-img-top{
+  object-fit: cover;
+}
+
+.card-footer{
+  background-color: #e9e5e5;
+  border-bottom-right-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
