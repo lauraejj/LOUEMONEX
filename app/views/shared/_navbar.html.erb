@@ -1,30 +1,31 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">LoueMonEx.com</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "", class: "nav-link" %>
+      <li class="nav-item active">
+          <%= link_to "Boyfriends' Home", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/irenenasha", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="/search">
+      <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <ul class="nav">
+      <div class="dropdown">
+        <a href="" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="https://kitt.lewagon.com/placeholder/users/irenenasha" class="avatar" alt="Avatar"> Maya L'abeille <b class="caret"></b></a>
+        <div class="dropdown-menu">
+          <a href="/users/sign_in" class="dropdown-item"><i class="fa fa-user-o"></i> Log In</a>
+          <a href="/users/sign_up" class="dropdown-item"><i class="fa fa-signup-o"></i> Sign Up</a>
+          <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Dashboard</a>
+          <div class="divider dropdown-divider"></div>
+          <a href="/users/sign_out" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
+        </div>
+      <div>
     </ul>
   </div>
-</div>
+</nav>
