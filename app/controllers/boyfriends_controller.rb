@@ -26,7 +26,7 @@ before_action :authenticate_user!
     # @boyfriend.boyfriend_service = @boyfriend
     @boyfriend.user = @user
     @boyfriend.save
-    redirect_to new_boyfriend_path(@boyfriend)
+    redirect_to root_path
   end
 
   private
