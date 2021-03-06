@@ -1,22 +1,26 @@
 class ReservationsController < ApplicationController
+before_action :authenticate_user!
 
   def new
     # we need @restaurant in our `simple_form_for`
     @boyfriend = Boyfriend.find(params[:boyfriend_id])
-    @user = User.find(params[:user_id])
     @reservation = Reservation.new
   end
 
-    def create
+  def create
     @reservation = Reservation.new(reservation_params)
     @boyfriend = Boyfriend.find(params[:boyfriend_id])
     @user = User.find(params[:user_id])
     @reservation.boyfriend = @boyfriend
+    @reservation.user = @user
     @reservation.save
     redirect_to boyfriend_path(@boyfriend)
   end
 
-    def destroy
+  def edit
+  end
+
+  def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
     redirect_to boyfriend_path(@reservation.boyfriend)
@@ -25,6 +29,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-  # params.require(:reservation).permit(:start_date, end_date)
+    params.require(:reservation).permit(:start_date, :end_date)
   end
 end
