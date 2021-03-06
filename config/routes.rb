@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
+    resources :reservations, only: %i[create new]
   end
+  resources :reservations, only: [ :destroy ]
   root to: 'boyfriends#index'
 end
