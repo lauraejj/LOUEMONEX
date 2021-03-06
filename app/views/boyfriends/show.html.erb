@@ -17,17 +17,16 @@
       <div class="card-footer">
         <%= link_to 'Back to the menu', root_path, class: 'link-primary' %>
       </div>
-     <%= link_to 'Make a reservation', new_boyfriend_reservation_path(@boyfriend) %>
     </div>
 
 
 </div>
 <div class ="resa">
-<%= simple_form_for(@boyfriend,@reservation) do |f| %>
+<%= simple_form_for [@boyfriend,Reservation.new] do |f| %>
 <%= f.input :start_date %>
 <%= f.input :end_date %>
 <%= f.submit "request reservation", class: "btn btn-primary" %>
-<%= end %>
+<% end %>
 </div>
 
 

@@ -10,7 +10,7 @@ before_action :authenticate_user!
   def create
     @reservation = Reservation.new(reservation_params)
     @boyfriend = Boyfriend.find(params[:boyfriend_id])
-    @user = User.find(params[:user_id])
+    @user = current_user
     @reservation.boyfriend = @boyfriend
     @reservation.user = @user
     @reservation.save

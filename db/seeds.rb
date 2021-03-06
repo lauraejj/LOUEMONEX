@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
+Boyfriend.all.destroy_all
+User.all.destroy_all
 
 puts 'Start seed'
 
@@ -25,7 +27,7 @@ end
 
 puts '15 users ok'
 puts 'Creating 10 boyfriends'
-
+users = User.all
 10.times do |i|
   file = URI.open("https://loremflickr.com/250/150/profile")
   boyfriend = Boyfriend.new(
@@ -36,7 +38,7 @@ puts 'Creating 10 boyfriends'
   # quand plusieurs bf par user modif L36 par L34 / 35
   # u = rand(1..15)
   # user = User.find(u)
-  user = User.find(i + 1)
+  user = users[i-1]
   boyfriend.user = user
   # boyfriend.ville = user.ville
   boyfriend.photos.attach(io: file, filename: 'profil_pic.png', content_type: 'image/png')
