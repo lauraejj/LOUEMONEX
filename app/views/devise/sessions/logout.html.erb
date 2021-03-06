@@ -1,0 +1,4 @@
+<%= link_to "Logout #{@user.id}",
+            _path(@restaurant),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
