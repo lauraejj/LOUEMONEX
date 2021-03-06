@@ -20,13 +20,14 @@
     </div>
 
 
-</div>
-<div class ="resa">
-<%= simple_form_for [@boyfriend,Reservation.new] do |f| %>
-<%= f.input :start_date %>
-<%= f.input :end_date %>
-<%= f.submit "request reservation", class: "btn btn-primary" %>
-<% end %>
+  </div>
+    <div class ="resa">
+      <%= simple_form_for [@boyfriend,Reservation.new] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit "request reservation", class: "btn btn-primary" %>
+      <% end %>
+  </div>
 </div>
 
 
