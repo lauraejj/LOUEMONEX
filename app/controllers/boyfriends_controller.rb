@@ -2,8 +2,8 @@ class BoyfriendsController < ApplicationController
 before_action :authenticate_user!
 
   def search
-  @boyfriend = params[:search]
-  @results = Boyfriend.all.where('lower(name) LIKE :search', search: @boyfriend)
+  @ville = params[:q]
+  @results = Boyfriend.where(ville: @ville)
     # @boyfriend = @boyfriend.find(params[:ville, :description])
   end
 
@@ -26,6 +26,25 @@ before_action :authenticate_user!
     # @boyfriend.boyfriend_service = @boyfriend
     @boyfriend.user = @user
     @boyfriend.save
+    redirect_to root_path
+  end
+
+  def edit
+    @boyfriend = Boyfriend.find(params[:id])
+  end
+
+  def update
+    @boyfriend = Boyfriend.find(params[:id])
+    @boyfriend.update(boyfriend_params)
+    @boyfriend.save
+    redirect_to root_path
+  end
+
+  def destroy
+    @boyfriend = Boyfriend.find(params[:id])
+    @boyfriend.destroy
+
+    # no need for app/views/restaurants/destroy.html.erb
     redirect_to root_path
   end
 
