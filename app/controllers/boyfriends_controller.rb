@@ -1,14 +1,16 @@
 class BoyfriendsController < ApplicationController
 before_action :authenticate_user!
 
-  def search
-  @ville = params[:q]
-  @results = Boyfriend.where(ville: @ville)
-    # @boyfriend = @boyfriend.find(params[:ville, :description])
+ def index
+    @boyfriends = Boyfriend.all
   end
 
-  def index
-    @boyfriends = Boyfriend.all
+  def search
+    if params[:query].present?
+      @boyfriend = Boyfriend.search_by_name_and_ville(params[:query])
+      @results = @boyfriend
+    else "No boyfriend found"
+    end
   end
 
   def show
