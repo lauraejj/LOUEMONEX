@@ -17,8 +17,12 @@
       <div class="card-footer">
         <%= link_to 'Back to the menu', root_path, class: 'link-primary' %>
       </div>
+      <div class="card-footer">
+          <%= link_to edit_boyfriend_path(@boyfriend) do%>
+          update Boyfriend
+          <% end %>
+      </div>
     </div>
-
 
   </div>
     <div class ="resa">
