@@ -1,0 +1,39 @@
+<%= simple_form_for @boyfriend,
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    boolean:       :horizontal_boolean,
+    check_boxes:   :horizontal_collection,
+    date:          :horizontal_multi_select,
+    datetime:      :horizontal_multi_select,
+    file:          :horizontal_file,
+    radio_buttons: :horizontal_collection,
+    range:         :horizontal_range,
+    time:          :horizontal_multi_select
+  } do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+
+  <%= f.input :age %>
+  <%= f.input :ville %>
+
+  <%= f.input :photos, as: :file, input_html: { multiple: true, name: "post_attachments[media][]" } %>
+
+  <%= f.input :description %>
+
+
+  <div class="form-group row mb-0">
+    <div class="col-sm-9 offset-sm-3">
+      <%= f.button :submit, class: "btn-primary" %>
+      <button class="btn-outline-secondary" type="submit">
+        <%= link_to "Delete",
+                      delete_boyfriend_path,
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+      </button>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    </div>
+  </div>
+
+<% end %>
