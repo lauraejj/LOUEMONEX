@@ -26,12 +26,14 @@
   <div class="form-group row mb-0">
     <div class="col-sm-9 offset-sm-3">
       <%= f.button :submit, class: "btn-primary" %>
-      <button class="btn-outline-secondary" type="submit">
+      <% if @boyfriend.persisted? %>
+        <button class="btn-outline-secondary" type="submit">
         <%= link_to "Delete",
                       delete_boyfriend_path,
                       method: :delete,
                       data: { confirm: "Are you sure?" } %>
       </button>
+      <% end %>
       <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
     </div>
   </div>
