@@ -3,5 +3,4 @@ class Boyfriend < ApplicationRecord
   has_many :reservations, dependent: :destroy
 
   has_many_attached :photos
-
 end
