@@ -40,8 +40,6 @@
     } do |f| %>
       <%= f.input :start_date %>
       <%= f.input :end_date %>
-      <%= f.input :ville, collection: Boyfriend::VILLE %>
-      <%= f.input :services, as: :radio_buttons, collection: Boyfriend::SERVICES %>
       <%= f.submit "request reservation", class: "btn btn-primary" %>
 
       <% end %>
