@@ -1,2 +1,21 @@
 <h1>Search Results</h1>
-<%= render "shared/search" %>
+<div class="container">
+  <% @results.each do |boyfriend| %>
+    <div class="card" style="width: 18rem;">
+      <% if boyfriend.photos.attached? %>
+        <%= cl_image_tag boyfriend.photos.first.key, class: "card-img-top", height: 160, width: 80 %>
+      <% else %>
+        <%= cl_image_tag 'missing_bf', class: "card-img-top", height: 160, width: 80 %>
+      <% end %>
+      <div class="card-index-body">
+        <h5 class="card-index-title"><%= boyfriend.name %></h5>
+        <p><%= boyfriend.age%> ans</p>
+        <p class="card-index-text"><%= boyfriend.ville %></p>
+        <p class="card-index-text"><%= boyfriend.description %></p>
+      </div>
+      <div class="card-index-footer">
+        <%= link_to 'Réserver', boyfriend_path(boyfriend), class: 'btn btn-primary btn-block' %>
+      </div>
+    </div>
+  <% end %>
+</div>

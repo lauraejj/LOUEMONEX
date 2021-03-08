@@ -17,16 +17,35 @@
       <div class="card-footer">
         <%= link_to 'Back to the menu', root_path, class: 'link-primary' %>
       </div>
+      <div class="card-footer">
+          <%= link_to edit_boyfriend_path(@boyfriend) do%>
+          update Boyfriend
+          <% end %>
+      </div>
     </div>
 
+  </div>
+    <div class ="resa">
+      <%= simple_form_for [@boyfriend,Reservation.new],
+      wrapper: :horizontal_form,
+  wrapper_mappings: {
+    boolean:       :horizontal_boolean,
+    check_boxes:   :horizontal_collection,
+    date:          :horizontal_multi_select,
+    datetime:      :horizontal_multi_select,
+    file:          :horizontal_file,
+    radio_buttons: :horizontal_collection,
+    range:         :horizontal_range,
+    time:          :horizontal_multi_select
+    } do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :ville, collection: Boyfriend::VILLE %>
+      <%= f.input :services, as: :radio_buttons, collection: Boyfriend::SERVICES %>
+      <%= f.submit "request reservation", class: "btn btn-primary" %>
 
-</div>
-<div class ="resa">
-<%= simple_form_for [@boyfriend,Reservation.new] do |f| %>
-<%= f.input :start_date %>
-<%= f.input :end_date %>
-<%= f.submit "request reservation", class: "btn btn-primary" %>
-<% end %>
+      <% end %>
+  </div>
 </div>
 
 
