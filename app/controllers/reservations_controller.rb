@@ -14,7 +14,7 @@ before_action :authenticate_user!
     @reservation.boyfriend = @boyfriend
     @reservation.user = @user
     @reservation.save
-    redirect_to boyfriend_path(@boyfriend)
+    redirect_to confirmation_path
   end
 
   def edit

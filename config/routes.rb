@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete 'boyfriends/:id', to: 'boyfriends#destroy', as: 'delete_boyfriend'
   # patch 'boyfriends/:id', to: 'boyfriends#update', as: 'update_boyfriend'
   get 'dashboard', to: "boyfriends#dashboard", as: "dashboard"
+  get "confirmation", to:'boyfriends#confirmation', as: 'confirmation'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :boyfriends, only: %i[show create new edit update destroy] do

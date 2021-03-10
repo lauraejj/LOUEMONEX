@@ -1,6 +1,8 @@
 <div class="container">
+
   <% @boyfriends.each do |boyfriend| %>
-    <div class="card" style="width: 18rem;">
+
+    <div class="card" style="width: 18rem">
       <% if boyfriend.photos.attached? %>
         <%= cl_image_tag boyfriend.photos.first.key, class: "card-img-top", height: 160, width: 80 %>
       <% else %>
@@ -8,16 +10,18 @@
       <% end %>
       <div class="card-index-body">
         <h5 class="card-index-title"><%= boyfriend.name %></h5>
-        <p class="card-index-text"><%= boyfriend.age%> ans </p>
-        <p><%= boyfriend.price%> € </p>
-        <p class="card-index-text"><%= boyfriend.ville %></p>
+        <p><%= boyfriend.age%> ans </p>
+        <p><%= boyfriend.ville %></p>
+        <p><%= boyfriend.price%> € / jour </p>
         <p class="card-index-text"><%= boyfriend.description %></p>
       </div>
       <div class="card-index-footer">
         <%= link_to 'Réserver', boyfriend_path(boyfriend), class: 'btn btn-primary btn-block' %>
       </div>
     </div>
+
   <% end %>
+
 </div>
 
 
