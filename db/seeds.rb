@@ -29,9 +29,10 @@ puts '15 users ok'
 puts 'Creating 10 boyfriends'
 users = User.all
 10.times do |i|
-  file = URI.open("https://loremflickr.com/250/150/profile")
+  file = URI.open("https://loremflickr.com/250/150/boyfriend")
   boyfriend = Boyfriend.new(
     name: Faker::Name.name,
+    ville: Faker::Address.city,
     description: "#{Faker::GreekPhilosophers.quote}\n#{Faker::Movie.quote}\n#{Faker::Quote.famous_last_words} ",
     age: rand(18..75),
     price: rand(10..50),
