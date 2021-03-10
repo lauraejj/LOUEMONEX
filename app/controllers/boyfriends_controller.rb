@@ -3,6 +3,13 @@ before_action :authenticate_user!
 
  def index
     @boyfriends = Boyfriend.all
+
+    @markers = @boyfriends.geocoded.map do |boyfriend|
+      {
+        lat: boyfriend.latitude,
+        lng: boyfriend.longitude
+      }
+    end
   end
 
   def search
