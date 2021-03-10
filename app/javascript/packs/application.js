@@ -9,6 +9,10 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+import { initBall } from '../channels/balls';
+document.addEventListener('turbolinks:load', () => {
+  initBall();
+});
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
