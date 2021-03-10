@@ -32,6 +32,7 @@ users = User.all
   file = URI.open("https://loremflickr.com/250/150/boyfriend")
   boyfriend = Boyfriend.new(
     name: Faker::Name.name,
+    ville: Faker::Address.city,
     description: "#{Faker::GreekPhilosophers.quote}\n#{Faker::Movie.quote}\n#{Faker::Quote.famous_last_words} ",
     age: rand(18..75)
   )
