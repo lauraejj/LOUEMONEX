@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_192432) do
+ActiveRecord::Schema.define(version: 2021_03_08_204318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_192432) do
     t.string "ville"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
     t.index ["user_id"], name: "index_boyfriends_on_user_id"
   end
 
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_192432) do
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "statut", default: "pending"
     t.index ["boyfriend_id"], name: "index_reservations_on_boyfriend_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

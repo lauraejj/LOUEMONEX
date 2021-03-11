@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     # we need @restaurant in our `simple_form_for`
@@ -14,10 +14,17 @@ before_action :authenticate_user!
     @reservation.boyfriend = @boyfriend
     @reservation.user = @user
     @reservation.save
+
     redirect_to boyfriend_path(@boyfriend)
   end
 
   def edit
+  end
+
+  def dashboard
+    @myreservations = Reservation.where(user:current_user)
+    @myboyfriendsreservations = Reservation.joins(boyfriend: :user).where(user: current_user)
+    # on obtient des arrays des resas
   end
 
   def destroy

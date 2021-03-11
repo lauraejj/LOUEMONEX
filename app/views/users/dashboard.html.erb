@@ -1,0 +1,39 @@
+<h1>Your Dashboard</h1>
+
+
+<% @myreservations.each do |reservation| %>
+      <% if reservation.statut == "pending" %>
+  <div class="container">
+      <div class="card" style="width: 18rem;">
+        <h3> Reservation en attente de confirmation %></h3>
+        <h5 class="card-index-title"><%= reservation.boyfriend.name %></h5>
+        <p><%= boyfriend.age%> ans</p>
+        <p class="card-index-text"><%= reservation.boyfriend.ville %></p>
+      </div>
+      <div class="card-index-footer">
+        <p><%= reservation.start_date %></p>
+        <p><%= reservation.end_date %></p>
+        <p><%= reservation.boyfriend.price %></p>
+      </div>
+</div>
+      <% end %>
+ <% end %>
+
+      <% @myboyfriendsreservations.each do |reservation| %>
+        <% if reservation.statut == "pending"%>
+  <div class="container">
+       <div class="card" style="width: 18rem;">
+        <h3> Reservation à confirmer %></h3>
+        <h5 class="card-index-title"><%= reservation.boyfriend.name %></h5>
+        <p class="card-index-text"><%= reservation.boyfriend.ville %></p>
+      </div>
+      <div class="card-index-footer">
+        <p class="card-index-text"><%= reservation.start_date %></p>
+        <p class="card-index-text"><%= reservation.end_date %></p>
+        <p class="card-index-text"><%= reservation.boyfriend.price %></p>
+        <%= link_to 'Confirmer', root_path, class: 'btn btn-primary btn-block' %>
+      </div>
+    </div>
+    </div>
+      <% end %>
+  <% end %>
