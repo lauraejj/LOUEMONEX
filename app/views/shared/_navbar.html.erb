@@ -10,6 +10,8 @@
           <%= link_to "Boyfriends' Home", root_path, class: "nav-link" %>
         </li>
     </ul>
+
+    <ul class="navbar-nav mr-auto">
       <%= form_tag search_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -18,22 +20,29 @@
         %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
-    </form>
-
-     <a href="/boyfriends/new" class="dropdown-item"><i class="fa fa-user-o"></i> Create a boyfriend</a>
-     <a href="/users/sign_in" class="dropdown-item"><i class="fa fa-user-o"></i> Log In</a>
-          <a href="/users/sign_up" class="dropdown-item"><i class="fa fa-signup-o"></i> Sign Up</a>
-          <a href="users/dashboard" class="dropdown-item"><i class="fa fa-sliders"></i> Dashboard</a>
-          <div class="divider dropdown-divider"></div>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-    <ul class="nav">
-      <div class="dropdown">
-        <a href="" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="https://kitt.lewagon.com/placeholder/users/irenenasha" class="avatar" alt="Avatar"> Maya L'abeille <b class="caret"></b></a>
-        <div class="dropdown-menu">
-
-        </div>
-      <div>
     </ul>
 
+  <div class="dropdown">
+      <% if signed_in? %>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= cl_image_tag current_user.avatar%> Hi, <%= current_user.nickname %> <span class="caret"></span></a>
+      <% else %>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account Info <span class="caret"></span></a>
+      <% end %>
+     <% if signed_in? %>
+        <ul class="dropdown-menu">
+          <a href="/boyfriends/new" class="dropdown-item"><i class="fa fa-user-o"></i> Create a boyfriend</a>
+          <a href="reservations/dashboard" class="dropdown-item"><i class="fa fa-sliders"></i> Dashboard</a>
+          <div class="divider dropdown-divider"></div>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </ul>
+        <ul class="dropdown-menu">
+   </ul>
+      <% else %>
+        <a href="/users/sign_in" class="dropdown-item"><i class="fa fa-user-o"></i> Log In</a>
+        <a href="/users/sign_up" class="dropdown-item"><i class="fa fa-signup-o"></i> Sign Up</a>
+      <% end %>
+    </ul>
   </div>
 </nav>
+

@@ -3,15 +3,4 @@
 @import "avatar";
 @import "card";
 @import "navbar";
-
-.container {
-  padding: 16px;
-  background-color: white;
-  color: #2d3e4e;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  text-align: center;
-  position: left;
-}
-
+@import "map";

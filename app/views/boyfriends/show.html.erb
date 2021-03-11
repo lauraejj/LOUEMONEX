@@ -17,11 +17,13 @@
       <div class="card-footer">
         <%= link_to 'Back to the menu', root_path, class: 'link-primary' %>
       </div>
+      <% if @boyfriend.user == current_user %>
       <div class="card-footer">
           <%= link_to edit_boyfriend_path(@boyfriend) do%>
           update Boyfriend
           <% end %>
       </div>
+      <% end %>
     </div>
 
   </div>

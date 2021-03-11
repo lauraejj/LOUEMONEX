@@ -14,8 +14,8 @@ class ReservationsController < ApplicationController
     @reservation.boyfriend = @boyfriend
     @reservation.user = @user
     @reservation.save
+    redirect_to confirmation_path
 
-    redirect_to boyfriend_path(@boyfriend)
   end
 
   def edit

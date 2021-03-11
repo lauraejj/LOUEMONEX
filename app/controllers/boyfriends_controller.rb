@@ -1,8 +1,16 @@
 class BoyfriendsController < ApplicationController
-before_action :authenticate_user!
+skip_before_action :authenticate_user!, only: [:index, :show, :search]
 
  def index
     @boyfriends = Boyfriend.all
+
+    @markers = @boyfriends.geocoded.map do |boyfriend|
+      {
+        lat: boyfriend.latitude,
+        lng: boyfriend.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { boyfriend: boyfriend })
+      }
+    end
   end
 
   def search
@@ -24,9 +32,8 @@ before_action :authenticate_user!
   def create
     @boyfriend = Boyfriend.new(boyfriend_params)
     # @boyfriend = BoyfriendService.find(params[:service_id])
-    @user = current_user
     # @boyfriend.boyfriend_service = @boyfriend
-    @boyfriend.user = @user
+    @boyfriend.user = current_user
     @boyfriend.save
     redirect_to root_path
   end
@@ -53,6 +60,6 @@ before_action :authenticate_user!
   private
 
   def boyfriend_params
-    params.require(:boyfriend).permit(:name, :age, :ville, :description, :photos)
+    params.require(:boyfriend).permit(:name, :age, :ville, :description, :photos, :price)
   end
 end
