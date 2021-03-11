@@ -7,7 +7,8 @@ skip_before_action :authenticate_user!, only: [:index, :show, :search]
     @markers = @boyfriends.geocoded.map do |boyfriend|
       {
         lat: boyfriend.latitude,
-        lng: boyfriend.longitude
+        lng: boyfriend.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { boyfriend: boyfriend })
       }
     end
   end
