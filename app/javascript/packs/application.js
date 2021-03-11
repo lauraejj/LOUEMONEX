@@ -9,6 +9,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+import "bootstrap";
 import { initBall } from '../channels/balls';
 document.addEventListener('turbolinks:load', () => {
   initBall();
