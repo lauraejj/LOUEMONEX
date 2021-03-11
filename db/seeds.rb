@@ -36,7 +36,7 @@ users = User.all
     description: "#{Faker::GreekPhilosophers.quote}\n#{Faker::Movie.quote}\n#{Faker::Quote.famous_last_words} ",
     age: rand(18..75),
     price: rand(10..50),
-    ville: %w(marseille paris lyon nantes brest strasbourg aix-en-provence nice montpellier avignon dijon lille dunkerque).sample
+    ville: %w(Marseille Paris Lyon Nantes Brest Strasbourg Aix-en-Provence Nice Montpellier Avignon Dijon Lille Dunkerque).sample
   )
   # quand plusieurs bf par user modif L36 par L34 / 35
   # u = rand(1..15)
