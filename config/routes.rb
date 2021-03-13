@@ -13,13 +13,13 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
-    resources :reservations, only: %i[create edit]
+    resources :reservations, only: %i[create]
   end
   resources :boyfriends, only: %i[show] do
     collection do
       get :ville
     end
   end
-  resources :reservations, only: %i[destroy]
+  resources :reservations, only: %i[destroy update]
   root to: 'boyfriends#index'
 end
