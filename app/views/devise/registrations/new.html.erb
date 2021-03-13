@@ -9,8 +9,7 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.label :avatar %>
-          <%= f.file_field :avatar %>
+          <%= f.input :avatar, as: :file %>
           <%= f.input :nickname %>
           <%= f.input :email,
                       required: true,

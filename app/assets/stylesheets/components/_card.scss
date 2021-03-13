@@ -4,13 +4,17 @@
   border-bottom-left-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border: 0,5px;
-  border-color:white;
+  border-color: #231d57;
   border-bottom-right-radius: 8px !important;
   border-bottom-left-radius: 8px !important;
 }
 
 .card-img-top{
   object-fit: cover;
+  gravity: face;
+  display:inline;
+  width: auto;
+  height: 300px;
 }
 
 .card-footer{
@@ -46,7 +50,7 @@
 }
 
 .card-index-title {
-  color: #fd395c;
+  color: #231d57;
 }
 
 
