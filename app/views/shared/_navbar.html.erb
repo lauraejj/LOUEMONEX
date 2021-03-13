@@ -26,14 +26,16 @@
 
   <div class="dropdown">
       <% if signed_in? %>
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="https://kitt.lewagon.com/placeholder/users/irenenasha" class="avatar" alt="Avatar"> Hi, <%= current_user.nickname %> <span class="caret"></span></a>
+
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= cl_image_tag current_user.avatar if current_user.avatar.attached?%> Hi, <%= current_user.nickname %> <span class="caret"></span></a>
+
       <% else %>
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account Info <span class="caret"></span></a>
       <% end %>
      <% if signed_in? %>
         <ul class="dropdown-menu">
           <a href="/boyfriends/new" class="dropdown-item"><i class="fa fa-user-o"></i> Create a boyfriend</a>
-          <a href="/dashboard" class="dropdown-item"><i class="fa fa-sliders"></i> Dashboard</a>
+          <% link_to "dashboard", reservations_dashboard_path, class: "dropdown-item" %>
           <div class="divider dropdown-divider"></div>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

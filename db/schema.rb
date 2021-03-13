@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_134202) do
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "statut", default: "pending"
     t.index ["boyfriend_id"], name: "index_reservations_on_boyfriend_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
