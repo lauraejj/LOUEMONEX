@@ -24,7 +24,7 @@
 
   <div class="dropdown">
       <% if signed_in? %>
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= cl_image_tag current_user.avatar%> Hi, <%= current_user.nickname %> <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="https://kitt.lewagon.com/placeholder/users/irenenasha" class="avatar" alt="Avatar"> Hi, <%= current_user.nickname %> <span class="caret"></span></a>
       <% else %>
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account Info <span class="caret"></span></a>
       <% end %>

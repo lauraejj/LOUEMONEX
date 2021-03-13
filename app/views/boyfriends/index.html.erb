@@ -1,30 +1,33 @@
-<div class="container">
 
-  <% @boyfriends.each do |boyfriend| %>
+  <div id="map"
+      style="width: 100%; height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
-    <div class="card" style="width: 18rem">
-      <% if boyfriend.photos.attached? %>
-        <%= cl_image_tag boyfriend.photos.first.key, class: "card-img-top", height: 160, width: 80 %>
-      <% else %>
-        <%= cl_image_tag 'missing_bf', class: "card-img-top", height: 160, width: 80 %>
-      <% end %>
-      <div class="card-index-body">
-        <h5 class="card-index-title"><%= boyfriend.name %></h5>
-        <p><%= boyfriend.age%> ans </p>
-        <p><%= boyfriend.ville %></p>
-        <p><%= boyfriend.price%> € / jour </p>
-        <p class="card-index-text"><%= boyfriend.description %></p>
+  <div class="container">
+    <% @boyfriends.each do |boyfriend| %>
+
+      <div class="card" style="width: 21rem">
+        <% if boyfriend.photos.attached? %>
+          <%= cl_image_tag boyfriend.photos.first.key, class: "card-img-top", height: 160, width: 80 %>
+        <% else %>
+          <%= cl_image_tag 'missing_bf', class: "card-img-top", height: 160, width: 80 %>
+        <% end %>
+        <div class="card-index-body">
+          <h5 class="card-index-title"><%= boyfriend.name %></h5>
+          <p><%= boyfriend.age%> ans </p>
+          <p><%= boyfriend.ville %></p>
+          <p><%= boyfriend.price%> € / jour </p>
+          <p class="card-index-text"><%= boyfriend.description %></p>
+        </div>
+        <div class="card-index-footer">
+          <%= link_to 'Réserver', boyfriend_path(boyfriend), class: 'btn btn-primary btn-block' %>
+        </div>
       </div>
-      <div class="card-index-footer">
-        <%= link_to 'Réserver', boyfriend_path(boyfriend), class: 'btn btn-primary btn-block' %>
-      </div>
-    </div>
 
-  <% end %>
+    <% end %>
+  </div>
 
-</div>
 
-<div id="map"
-    style="width: 100%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
